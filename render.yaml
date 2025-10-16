@@ -1,0 +1,22 @@
+services:
+  - type: worker
+    name: SmartTradeHub
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python smart_tradehub.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: CHAT_ID
+        sync: false
+      - key: BINANCE_API_KEY
+        sync: false
+      - key: BINANCE_API_SECRET
+        sync: false
+      - key: INTERVAL
+        value: 15m
+      - key: SCORE_THRESHOLD
+        value: 0.8
+      - key: TOP_N
+        value: 300
